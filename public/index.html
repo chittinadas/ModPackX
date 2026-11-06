@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0e13">
+
+  <title>ModPackX - Modrinth Mod Manager</title>
+
+  <link rel="stylesheet" href="/style.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+
+<body>
+
+<header>
+  <a class="logo" href="/">ModPack<span>X</span></a>
+  <div class="powered">POWERED BY MODRINTH</div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <span class="eyebrow">MINECRAFT MOD MANAGER</span>
+    <h1>Build your <span>perfect</span> Modpack.</h1>
+    <p>Explore mods. Add to inbox. Download everything in one click.</p>
+  </section>
+
+  <section class="settings panel">
+    <div class="field">
+      <label>MINECRAFT VERSION</label>
+      <input id="game" value="1.21.1" placeholder="1.21.1">
+    </div>
+
+    <div class="field">
+      <label>MOD LOADER</label>
+      <select id="loader">
+        <option value="fabric">Fabric</option>
+        <option value="forge">Forge</option>
+        <option value="neoforge">NeoForge</option>
+        <option value="quilt">Quilt</option>
+      </select>
+    </div>
+
+    <button id="apply">Apply</button>
+  </section>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="explore">
+      Explore Mods
+    </button>
+
+    <button class="tab" data-tab="inbox">
+      My Inbox <span id="cartCount">0</span>
+    </button>
+  </nav>
+
+  <section id="exploreView">
+
+    <div class="search">
+      <input id="query" placeholder="Search mods on Modrinth...">
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <div class="section-heading">
+      <div>
+        <h2>All Mods</h2>
+        <p id="resultCount">Loading mods...</p>
+      </div>
+
+      <span class="source">OFFICIAL MODRINTH</span>
+    </div>
+
+    <div class="legend">
+      <span class="green-dot"></span> Compatible
+      <span class="red-dot"></span> Incompatible
+    </div>
+
+    <div id="mods" class="mods-grid"></div>
+
+    <div class="pagination">
+      <button id="previous" disabled>← Previous</button>
+      <span id="pageNumber">Page 1</span>
+      <button id="next">Next →</button>
+    </div>
+
+  </section>
+
+  <section id="inboxView" hidden>
+
+    <div class="section-heading">
+      <div>
+        <h2>My Mod Inbox</h2>
+        <p>Review your selected mods before downloading.</p>
+      </div>
+
+      <button id="clearCart" class="remove-all">Clear All</button>
+    </div>
+
+    <div id="cartItems" class="cart-list"></div>
+
+    <div class="download-panel panel">
+      <div>
+        <h3 id="cartTotal">0 Mods Selected</h3>
+        <p>All compatible files will be packed into one ZIP.</p>
+      </div>
+
+      <button id="downloadBtn" disabled>
+        <span>↓</span> Download All ZIP
+      </button>
+    </div>
+
+    <div id="downloadStatus" class="download-status"></div>
+
+    <div id="issues" class="issues"></div>
+
+  </section>
+
+</main>
+
+<footer>
+  <p>ModPackX is an independent project.</p>
+  <a href="https://modrinth.com/" target="_blank" rel="noopener">
+    Visit Modrinth ↗
+  </a>
+</footer>
+
+<script src="/app.js"></script>
+
+</body>
+</html>
